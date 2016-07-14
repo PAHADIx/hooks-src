@@ -15,7 +15,6 @@ class DBConnection extends \PDO
             $this->setAttribute(\PDO::ATTR_EMULATE_PREPARES, true);
             $this->setAttribute(\PDO::ATTR_PERSISTENT, true);
         } catch (\Exception $e){
-            errorLog("Database Connection Failed");
             die("Database Connection Failed");
         }
     }
