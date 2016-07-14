@@ -2,6 +2,7 @@
 namespace hooks\DataBase;
 
 use hooks\Errors\Error;
+use hooks\MVC\Route;
 use hooks\Utils\PageResults;
 
 class SQLQuery
@@ -130,9 +131,9 @@ class SQLQuery
         return $sql;
     }
 
-    public function currentPageResults(int $items_per_page = ITEMS_PER_PAGE) : PageResults {
+    public function currentPageResults(int $items_per_page) : PageResults {
 
-        $page =  route()->pageIndex();
+        $page =  (new Route())->pageIndex();
 
         //Two Queries:
         $qs = new QueryStack();

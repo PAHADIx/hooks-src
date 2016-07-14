@@ -5,6 +5,9 @@ namespace hooks\Form;
 
 class FormBuilder
 {
+    const DATE_FORMAT_LONG_HTML5 = "Y-m-d h:i a";
+    const DATE_FORMAT_SHORT_HTML5 = "Y-m-d";
+
     public $type = "text";
     public $value = null;
     public $name = null;
@@ -149,13 +152,13 @@ class FormBuilder
 
         if($this->type == "datetime"){
             if($this->value instanceof \DateTime){
-                $this->value = $this->value->format(DATE_FORMAT_LONG_HTML5);
+                $this->value = $this->value->format(self::DATE_FORMAT_LONG_HTML5);
             }
         }
 
         if($this->type == "date"){
             if($this->value instanceof \DateTime){
-                $this->value = $this->value->format(DATE_FORMAT_SHORT_HTML5);
+                $this->value = $this->value->format(self::DATE_FORMAT_SHORT_HTML5);
             }
         }
 
